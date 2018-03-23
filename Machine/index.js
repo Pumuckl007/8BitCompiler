@@ -1,5 +1,6 @@
 var fs = require('fs');
 var parser = require('./Parser.js');
+var serialPortWriter = require('./SerialPortWriter.js');
 
 if(process.argv.length < 4){
   console.log("ERROR: TOO FEW ARGUMENTS");
@@ -20,3 +21,7 @@ console.log();
 console.log(assembly.toString());
 
 fs.writeFileSync(process.argv[3],new Buffer(bytes));
+
+if(process.argv.length > 4){
+  serialPortWriter(process.argv[4], new Buffer(bytes));
+}

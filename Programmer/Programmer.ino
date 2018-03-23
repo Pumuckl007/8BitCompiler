@@ -48,7 +48,7 @@ void loop() {
       }
       Serial.print("Code will be ");
       Serial.print(codeLength, DEC);
-      Serial.println(" instructions");
+      Serial.println(" instructions long.");
     } else {
       code[bytesRecived] = incomingByte;
       bytesRecived ++;
@@ -59,7 +59,7 @@ void loop() {
 
 void programCode(uint8_t code[], int codeLength){
   for (i = 0; i < codeLength; i++) {
-    instruction = code[i * 2];
+    instruction = code[i * 2] << 4;
     data = code[i * 2 + 1];
     writeCode(i, instruction, data);
     Serial.print(i);
