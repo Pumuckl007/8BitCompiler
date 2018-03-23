@@ -1,0 +1,4 @@
+LDA 8
+ADD 12
+OUT
+HLT
