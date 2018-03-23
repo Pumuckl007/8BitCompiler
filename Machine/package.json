@@ -1,0 +1,22 @@
+{
+  "name": "machine",
+  "version": "1.0.0",
+  "description": "An assembly compiler for Ben Eaters computer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pumuckl007/8BitCompiler.git"
+  },
+  "author": "Max",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pumuckl007/8BitCompiler/issues"
+  },
+  "homepage": "https://github.com/Pumuckl007/8BitCompiler#readme",
+  "dependencies": {
+    "serialport": "^6.1.1"
+  }
+}
