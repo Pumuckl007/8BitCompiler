@@ -1,4 +1,11 @@
 ********************************************************************************
+*                                                                              *
+*      This file is subject to the terms and conditions defined in             *
+*      file 'LICENSE', which is in the root directory of this project.         *
+*                                                                              *
+********************************************************************************
+
+********************************************************************************
 *                           Benchmarking Program                               *
 *                                                                              *
 *     This program runs a certain number of instructions. This number can be   *

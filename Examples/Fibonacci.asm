@@ -1,3 +1,10 @@
+********************************************************************************
+*                                                                              *
+*      This file is subject to the terms and conditions defined in             *
+*      file 'LICENSE', which is in the root directory of this project.         *
+*                                                                              *
+********************************************************************************
+
 LDI 233     * Load 233, the maximum value
 STA 253
 LDI 1       * Load 1, the starting value

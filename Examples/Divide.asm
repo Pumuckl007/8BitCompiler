@@ -1,3 +1,10 @@
+********************************************************************************
+*                                                                              *
+*      This file is subject to the terms and conditions defined in             *
+*      file 'LICENSE', which is in the root directory of this project.         *
+*                                                                              *
+********************************************************************************
+
 LDI 120       * The dividend
 STA 255
 LDI 10        * The divisor

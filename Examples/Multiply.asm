@@ -1,3 +1,10 @@
+********************************************************************************
+*                                                                              *
+*      This file is subject to the terms and conditions defined in             *
+*      file 'LICENSE', which is in the root directory of this project.         *
+*                                                                              *
+********************************************************************************
+
 LDI 8         * First number to multiply
 STA 255
 LDI 8         * second number to multiply

@@ -1,4 +1,11 @@
 ********************************************************************************
+*                                                                              *
+*      This file is subject to the terms and conditions defined in             *
+*      file 'LICENSE', which is in the root directory of this project.         *
+*                                                                              *
+********************************************************************************
+
+********************************************************************************
 *                           Prime Number Example                               *
 *                                                                              *
 *     This program computes the prime numbers in a given range. It does this   *
