@@ -1,7 +1,7 @@
 ********************************************************************************
 *                                                                              *
-*      This file is subject to the terms and conditions defined in             *
-*      file 'LICENSE', which is in the root directory of this project.         *
+*      (c) 2018 Max Apodaca                                                    *
+*      This code is licensed under MIT license (see LICENSE for details)       *
 *                                                                              *
 ********************************************************************************
 

@@ -1,3 +1,6 @@
+// (c) 2018 Max Apodaca
+// This code is licensed under MIT license (see LICENSE for details)
+
 var InstructionMap = {
   "NOP":0b0000,
   "LDA":0b0001,

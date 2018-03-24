@@ -1,3 +1,6 @@
+// (c) 2018 Max Apodaca
+// This code is licensed under MIT license (see LICENSE for details)
+
 #define WRITE 21
 #define INSTRUCTION 20
 #define LOWADDR 22
@@ -34,11 +37,11 @@ void loop() {
     bytesRecived = 0;
     codeLength = -1;
   }
-  
+
   if (Serial.available() > 0) {
 
     incomingByte = Serial.read();
-    
+
     if(codeLength == -1){
       codeLength = incomingByte+1;
       if(codeLength > 256){

@@ -1,3 +1,6 @@
+// (c) 2018 Max Apodaca
+// This code is licensed under MIT license (see LICENSE for details)
+
 var Label = require('./Label.js');
 var Instruction = require('./Instruction.js');
 var Assembly = require('./Assembly.js');
