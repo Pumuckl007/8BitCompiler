@@ -9,10 +9,10 @@ function parser(assemblyCode){
   for(let i = 0; i<lines.length; i++){
     let line = lines[i].trim();
     while(line.indexOf(':') !== -1){
-        let labels = line.split(":", 1);
+        let labels = line.split(":", 2);
         line = (labels.length > 1) ? labels[1].trim() : "";
         let labelName = labels[0];
-        console.log(labelName);
+        console.log(labels);
         let address = assembly.getInstructions().length;
         let label = new Label(labelName, address);
         assembly.addLabel(label);

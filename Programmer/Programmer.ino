@@ -3,7 +3,7 @@
 #define LOWADDR 22
 #define LOWDATA 23
 
-#define DELAY 10
+#define DELAY 2
 
 int i = 0;
 
