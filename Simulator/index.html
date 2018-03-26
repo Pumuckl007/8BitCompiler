@@ -11,8 +11,12 @@
         <link rel="apple-touch-icon" href="icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <!-- <link rel="stylesheet" href="css/normalize.css"> -->
-        <!-- <link rel="stylesheet" href="css/main.css"> -->
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="css.css">
+
+        <script src="lib/codemirror.js"></script>
+        <link rel="stylesheet" href="lib/codemirror.css">
+        <script src="mode/gas/gas.js"></script>
     </head>
     <body>
         <!--[if lte IE 9]>
@@ -20,7 +24,10 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <p>Hello world! This is HTML5 Boilerplate.</p>
+
+        <div class="editor-wrapper">
+          <textarea id="editor"></textarea>
+        </div>
         <script src="bin/rolledup.js"></script>
 
     </body>
