@@ -1,6 +1,6 @@
 import Instruction from "./Instruction.js";
 
-class LDI extends Instruction{
+class SUB extends Instruction{
 
   step(microInstruction, computer){
     if(microInstruction === 2){
@@ -8,10 +8,13 @@ class LDI extends Instruction{
       computer.dataRegister.setValue(bus);
     } else if(microInstruction === 3){
       let bus = computer.dataRegister.getValue();
-      computer.aRegister.setValue(bus);
+      computer.mAR.setValue(bus);
+    } else if(microInstruction === 4){
+      let bus = computer.aRegister.getValue();
+      computer.memory.setValue(bus);
     }
   }
 
 }
 
-export default LDI;
+export default SUB;
