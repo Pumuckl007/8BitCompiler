@@ -1,6 +1,6 @@
 import Instruction from "./Instruction.js";
 
-class SUB extends Instruction{
+class STA extends Instruction{
 
   step(microInstruction, computer){
     if(microInstruction === 2){
@@ -17,4 +17,4 @@ class SUB extends Instruction{
 
 }
 
-export default SUB;
+export default STA;
