@@ -1,0 +1,11 @@
+{
+  "name": "8-Bit-Simulator",
+  "version": "1.0.0",
+  "scripts": {
+    "make": "rollup -c -o ./bin/rolledup.js",
+    "watch": "rollup -f cjs -i ./src/index.js  -w -o ./bin/rolledup.js"
+  },
+  "dependencies": {
+    "rollup": "^0.57.1"
+  }
+}
