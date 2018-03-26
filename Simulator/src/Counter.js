@@ -18,6 +18,10 @@ class Counter {
     this.value = (this.value + 1) & this.mask;
   }
 
+  clear(){
+    this.value = 0;
+  }
+  
 }
 
 export default Counter;

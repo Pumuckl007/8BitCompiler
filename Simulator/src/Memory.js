@@ -27,6 +27,16 @@ class Memory {
     this.data[address] = newValue;
   }
 
+  setValues(ram){
+    this.data = ram;
+    for(let i = 0; i<this.data.length; i++){
+      if(typeof this.data[i] === 'undefined'){
+        this.data[i] = this.mask;
+      }
+      this.data[i] = this.data[i] & this.mask;
+    }
+  }
+
 }
 
 export default Memory;

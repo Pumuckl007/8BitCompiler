@@ -11,17 +11,17 @@ import OUT from "./OUT.js";
 import HLT from "./HLT.js";
 
 let instructions = {
-  0b00000000: new NOP(),
-  0b00010000: new LDA(),
-  0b00100000: new ADD(),
-  0b00110000: new SUB(),
-  0b01000000: new STA(),
-  0b01010000: new LDI(),
-  0b01100000: new JMP(),
-  0b01110000: new JEZ(),
-  0b10000000: new JGZ(),
-  0b11100000: new OUT(),
-  0b11110000: new HLT()
+  0b0000: new NOP(),
+  0b0001: new LDA(),
+  0b0010: new ADD(),
+  0b0011: new SUB(),
+  0b0100: new STA(),
+  0b0101: new LDI(),
+  0b0110: new JMP(),
+  0b0111: new JEZ(),
+  0b1000: new JGZ(),
+  0b1110: new OUT(),
+  0b1111: new HLT()
 }
 
 export default instructions;

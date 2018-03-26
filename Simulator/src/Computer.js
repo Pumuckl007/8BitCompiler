@@ -34,12 +34,31 @@ class Computer {
       this.instructionRegister.setValue(bus);
       this.counter.increment();
     } else {
-
+      let instructionNumber = this.instructionRegister.getValue();
+      if(this.instructions[instructionNumber]){
+        this.instructions[instructionNumber].step(this.microInstruction, this);
+      }
     }
     this.microInstruction ++;
     if(this.microInstruction > 6){
       this.microInstruction = 0;
     }
+  }
+
+  setRam(ram){
+    this.memory.setValues(ram);
+  }
+
+  reset(){
+    this.microInstruction = 0;
+    this.counter.clear();
+    this.aRegister.clear();
+    this.bRegister.clear();
+    this.instructionRegister.clear();
+    this.dataRegister.clear();
+    this.outputRegister.clear();
+    this.mAR.clear();
+    this.halt = false;
   }
 
 }
