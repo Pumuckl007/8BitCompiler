@@ -1,0 +1,30 @@
+.editor-wrapper{
+  position:absolute;
+  width:40%;
+  top:30px;
+  bottom:0;
+  left:0;
+}
+
+.CodeMirror {
+  height:100% !important;
+}
+
+.controls {
+  position:absolute;
+  width: 40%;
+  height:30px;
+  top:0;
+  left:0;
+}
+
+.control-button{
+  width:30px;
+  height:30px;
+  float:left;
+  text-align: center;
+  font-size: 1.4em;
+  line-height: 30px;
+  color: #037c00;
+  cursor:default;
+}

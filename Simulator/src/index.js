@@ -1,10 +1,5 @@
 import Computer from "./Computer.js";
+import Editor from "./Editor.js";
 
 window.computer = new Computer();
-
-
-var myCodeMirror = CodeMirror.fromTextArea(document.getElementById("editor"),
-{
-    lineNumbers: true,
-    mode: "gas"
-  });
+window.editor = new Editor();
