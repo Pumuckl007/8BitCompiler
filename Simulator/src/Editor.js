@@ -1,9 +1,9 @@
 import Parser from "./Compiler/Parser.js";
 
 let modes = {
-  "paused":"paused",
-  "run":"run",
-  "debug":"debug"
+  "paused": "paused",
+  "run": "run",
+  "debug": "debug"
 }
 
 class Editor {
@@ -13,7 +13,7 @@ class Editor {
     this.breakpoints = [];
     this.mode = modes.paused;
     this.running = false;
-    this.debug = false;
+    this.debugMode = false;
     this.previousActiveLine = -1;
 
     this.codeMirror = CodeMirror.fromTextArea(document.getElementById("editor"), {
@@ -32,12 +32,12 @@ class Editor {
 
     this.codeMirror.on("gutterClick", function(cm, n) {
       let info = cm.lineInfo(n);
-      if(!info.gutterMarkers){
-        info.handle.on("delete", function(){
+      if (!info.gutterMarkers) {
+        info.handle.on("delete", function() {
           self.breakpoints[n] = false;
         });
       }
-      self.breakpoints[info.line] = info.gutterMarkers ? false :  true;
+      self.breakpoints[info.line] = info.gutterMarkers ? false : true;
       cm.setGutterMarker(n, "breakpoints", info.gutterMarkers ? null : makeMarker());
     });
 
@@ -45,44 +45,65 @@ class Editor {
     this.debugButton = document.getElementById("debug");
     this.stepButton = document.getElementById("step");
     this.runButton = document.getElementById("run");
+    this.frequencyInput = document.getElementById("frequency");
     this.compileButton.onclick = function() {
       self.upload();
     };
     this.debugButton.onclick = function() {
       self.debug();
     };
-    this.stepButton.onclick = function(){
+    this.stepButton.onclick = function() {
       self.step();
     };
-    this.runButton.onclick = function(){
+    this.runButton.onclick = function() {
       self.toggleRun();
     }
-
+    this.frequencyInput.onchange = function(e) {
+      let frequency = parseInt(e.srcElement.value);
+      if (!isNaN(frequency) && frequency >= 0) {
+        self.setFrequency(frequency);
+      } else {
+        self.setFrequency(1);
+      }
+    }
     this.computer.addEventListener(this);
     this.lineMap = [];
+    this.timerDelay = 1000;
+    this.timesRepeated = 1;
+    this.activeLine = -1;
+    this.repeatFunction = function() {
+      for (let i = 0; i < self.timesRepeated && self.running; i++) {
+        self.step();
+      }
+      self.renderLine();
+      setTimeout(self.repeatFunction, (self.timerDelay < 1) ? 1 : self.timerDelay);
+    }
+    this.repeatFunction();
   }
 
   upload() {
     let bytesAndBreakpoints = this.compile();
     let bytes = bytesAndBreakpoints[0];
     this.lineMap = bytesAndBreakpoints[2];
+    this.breakpointMap = bytesAndBreakpoints[1];
     this.mode = modes.run;
     this.computer.reset();
     let condensed = Array.from(bytes);
     let dilute = [];
-    for(let i = 0; i<condensed.length/2; i++){
-      dilute[i] = condensed[i*2+1];
-      dilute[i+256] = condensed[i*2];
+    for (let i = 0; i < condensed.length / 2; i++) {
+      dilute[i] = condensed[i * 2 + 1];
+      dilute[i + 256] = condensed[i * 2];
     }
     this.computer.setRam(dilute);
-    this.debug = false;
+    this.debugMode = false;
     this.highlightLine(-1);
+    this.activeLine = -1;
   }
 
   debug() {
-    console.log("debug");
+    this.upload();
     this.mode = modes.debug;
-    this.debug = true;
+    this.debugMode = true;
   }
 
   compile() {
@@ -91,42 +112,70 @@ class Editor {
     return [byteCode, assemblyAndBreakpoints[1], assemblyAndBreakpoints[2]];
   }
 
-  parse(){
+  parse() {
     let code = this.codeMirror.doc.getValue();
     let assemblyAndBreakpoints = Parser(code, this.breakpoints);
     return assemblyAndBreakpoints;
   }
 
-  step(){
-    if(!this.debug){
-      this.computer.step();
-    }
+  step() {
+    this.computer.step();
   }
 
-  highlightLine(line){
+  highlightLine(line) {
     let doc = this.codeMirror.getDoc();
-    if(this.previousActiveLine !== -1){
+    if (this.previousActiveLine !== -1) {
       doc.removeLineClass(this.previousActiveLine, "background", "highlight-line");
     }
     doc.addLineClass(line, "background", "highlight-line");
     this.previousActiveLine = line;
   }
 
-  toggleRun(){
-    if(this.running){
-      this.running = false;
-      this.runButton.innerHTML = "▶";
+  toggleRun() {
+    if (this.running) {
+      this.setStopped();
     } else {
-      this.running = true;
-      this.runButton.innerHTML = "⏸";
+      this.setRunning();
     }
   }
 
-  onEvent(eventId, data){
-    if(eventId === "next-instruction"){
+  setRunning() {
+    this.running = true;
+    this.runButton.innerHTML = "⏸";
+  }
+
+  setStopped() {
+    this.running = false;
+    this.runButton.innerHTML = "▶";
+  }
+
+  setFrequency(frequency) {
+    if (frequency <= 0) {
+      this.setStopped();
+      return;
+    }
+    let quotient = Math.floor(1000 / frequency);
+    if (quotient === 0) {
+      this.timerDelay = 1;
+      this.timesRepeated = Math.round(frequency / 1000);
+    } else {
+      this.timerDelay = quotient;
+      this.timesRepeated = 1;
+    }
+  }
+
+  renderLine(){
+    this.highlightLine(this.activeLine);
+  }
+
+  onEvent(eventId, data) {
+    if (eventId === "next-instruction") {
       let activeLine = this.lineMap[data];
-      if(activeLine || activeLine === 0){
-        this.highlightLine(activeLine);
+      if (activeLine || activeLine === 0) {
+        this.activeLine = activeLine;
+      }
+      if (this.debugMode && this.breakpointMap[data]) {
+        this.setStopped();
       }
     }
   }
