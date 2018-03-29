@@ -1,30 +1,70 @@
-.editor-wrapper{
-  position:absolute;
-  width:40%;
-  top:30px;
-  bottom:0;
-  left:0;
+.editor-wrapper {
+  position: absolute;
+  width: 700px;
+  top: 30px;
+  bottom: 0;
+  left: 0;
 }
 
 .CodeMirror {
-  height:100% !important;
+  height: 100% !important;
 }
 
 .controls {
-  position:absolute;
-  width: 40%;
-  height:30px;
-  top:0;
-  left:0;
+  position: absolute;
+  width: 700px;
+  height: 29px;
+  top: 0;
+  left: 0;
+  border-bottom: solid 1px #ccc;
 }
 
-.control-button{
-  width:30px;
-  height:30px;
-  float:left;
+.control-button {
+  width: 30px;
+  height: 30px;
+  float: left;
   text-align: center;
   font-size: 1.4em;
   line-height: 30px;
-  color: #037c00;
-  cursor:default;
+  color: #909090;
+  cursor: default;
+  user-select: none;
+  font-weight: 300;
+  padding-left : 2px;
+  padding-right: 2px;
+}
+
+.control-button:hover{
+  color: #6e6e6e;
+}
+
+.control-input{
+  margin-top:4px;
+  width: 50px;
+  text-align: right;
+  float: left;
+}
+
+.control-label {
+  float:left;
+  height:30px;
+  line-height: 30px;
+  padding-left: 2px;
+}
+
+.step{
+  box-shadow: -5px 0px 0px -4px #ccc;
+}
+
+.display {
+  position:absolute;
+  left: 700px;
+  right: 0;
+  top:0;
+  bottom:0;
+  border-left: solid 1px #ccc;
+}
+
+.highlight-line{
+  background-color: #ffefa0 !important;
 }

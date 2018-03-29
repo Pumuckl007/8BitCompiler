@@ -20,6 +20,7 @@ class Computer {
     this.microInstruction = 0;
     this.halt = false;
     this.instructions = Instructions;
+    this.listeners = [];
   }
 
   step(){
@@ -29,6 +30,7 @@ class Computer {
     if(this.microInstruction === 0){
       let bus = this.counter.getValue();
       this.mAR.setValue(bus);
+      this.emitEvent("next-instruction", bus);
     } else if(this.microInstruction === 1){
       let bus = this.memory.getValue(true);
       this.instructionRegister.setValue(bus);
@@ -43,6 +45,7 @@ class Computer {
     if(this.microInstruction > 6){
       this.microInstruction = 0;
     }
+    this.emitEvent("step-done");
   }
 
   setRam(ram){
@@ -59,6 +62,16 @@ class Computer {
     this.outputRegister.clear();
     this.mAR.clear();
     this.halt = false;
+  }
+
+  addEventListener(listener){
+    this.listeners.push(listener);
+  }
+
+  emitEvent(id, data){
+    for(let listener of this.listeners){
+      listener.onEvent(id, data);
+    }
   }
 
 }

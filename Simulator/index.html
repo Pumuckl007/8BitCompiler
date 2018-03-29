@@ -1,38 +1,60 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="apple-touch-icon" href="icon.png">
-        <!-- Place favicon.ico in the root directory -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="css.css">
+  <!-- Place favicon.ico in the root directory -->
 
-        <script src="lib/codemirror.js"></script>
-        <link rel="stylesheet" href="lib/codemirror.css">
-        <script src="mode/gas/gas.js"></script>
-    </head>
-    <body>
-        <!--[if lte IE 9]>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="css.css">
+
+  <script src="lib/codemirror.js"></script>
+  <link rel="stylesheet" href="lib/codemirror.css">
+  <script src="mode/gas/gas.js"></script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
+  <!-- Add your site or application content here -->
 
-        <div class="controls">
-          <div title="Run" id="run" class="control-button run">▶</div>
-          <div title="Debug" id="debug" class="control-button debug">🐞</div>
-        </div>
-        <div class="editor-wrapper">
-          <textarea id="editor"></textarea>
-        </div>
-        <script src="bin/rolledup.js"></script>
+  <div class="controls">
+    <div title="Compile" id="compile" class="control-button compile">🔨</div>
+    <div title="Debug" id="debug" class="control-button debug">🐞</div>
+    <div title="Step" id="step" class="control-button step">➜</div>
+    <div title="Run" id="run" class="control-button run">▶</div>
+    <input type="number" min="0" title="Frequency"
+      value="1" class="control-input frequency"></input>
+    <div class="control-label">Hz</div>
+  </div>
+  <div class="editor-wrapper">
+    <textarea id="editor">
+********************************************************************************
+*                                                                              *
+*      (c) 2018 Max Apodaca                                                    *
+*      This code is licensed under MIT license (see LICENSE for details)       *
+*                                                                              *
+********************************************************************************
 
-    </body>
+LDI 12
+STA 200
+LDI 8
+ADD 200
+OUT
+HLT
+</textarea>
+  </div>
+  <div class="display">
+  </div>
+  <script src="bin/rolledup.js"></script>
+
+</body>
+
 </html>
