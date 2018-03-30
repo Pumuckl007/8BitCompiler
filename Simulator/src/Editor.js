@@ -76,7 +76,9 @@ class Editor {
         self.step();
       }
       self.renderLine();
-      setTimeout(self.repeatFunction, (self.timerDelay < 1) ? 1 : self.timerDelay);
+      let delayTime =  (self.timerDelay < 1) ? 1 : self.timerDelay;
+      delayTime = (self.running && !self.computer.halt) ? delayTime : 200;
+      setTimeout(self.repeatFunction, delayTime);
     }
     this.repeatFunction();
   }
@@ -128,6 +130,9 @@ class Editor {
       doc.removeLineClass(this.previousActiveLine, "background", "highlight-line");
     }
     doc.addLineClass(line, "background", "highlight-line");
+    if(line !== -1){
+      this.codeMirror.scrollIntoView({line:line, char:0});
+    }
     this.previousActiveLine = line;
   }
 

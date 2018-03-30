@@ -23,15 +23,13 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
-  <!-- Add your site or application content here -->
-
   <div class="controls">
     <div title="Compile" id="compile" class="control-button compile">🔨</div>
     <div title="Debug" id="debug" class="control-button debug">🐞</div>
     <div title="Step" id="step" class="control-button step">➜</div>
     <div title="Run" id="run" class="control-button run">▶</div>
     <input type="number" min="0" title="Frequency"
-      value="1" class="control-input frequency" id="frequency"></input>
+      value="10" class="control-input frequency" id="frequency"></input>
     <div class="control-label">Hz</div>
   </div>
   <div class="editor-wrapper">
@@ -51,7 +49,63 @@ OUT
 HLT
 </textarea>
   </div>
-  <div class="display">
+  <div class="display" id="display">
+    <div class="simple" id="simple">
+      <div class="simple-row">
+        <div class="simple-column">
+          <div class="simple-heading">MAR</div>
+          <div class="simple-data" id="MAR">0</div>
+        </div>
+        <div class="simple-column">
+          <div class="simple-heading">Counter</div>
+          <div class="simple-data" id="Counter">0</div>
+        </div>
+      </div>
+      <div class="simple-row">
+        <div class="simple-column">
+          <div class="simple-heading">Memory</div>
+          <div class="simple-data" id="Memory">0</div>
+        </div>
+        <div class="simple-column">
+          <div class="simple-heading">A Register</div>
+          <div class="simple-data" id="A-Register">0</div>
+        </div>
+      </div>
+      <div class="simple-row">
+        <div class="simple-column">
+          <div class="simple-heading">Instruction Register</div>
+          <div class="simple-data" id="Instruction-Register">0</div>
+        </div>
+        <div class="simple-column">
+          <div class="simple-heading">Sum Register</div>
+          <div class="simple-data" id="Sum-Register">0</div>
+        </div>
+      </div>
+      <div class="simple-row">
+        <div class="simple-column">
+          <div class="simple-heading">Data Register</div>
+          <div class="simple-data" id="Data-Register">0</div>
+        </div>
+        <div class="simple-column">
+          <div class="simple-heading">B Register</div>
+          <div class="simple-data" id="B-Register">0</div>
+        </div>
+      </div>
+      <div class="simple-row">
+        <div class="simple-column">
+          <div class="simple-heading">Micro Instruction</div>
+          <div class="simple-data" id="Micro-Instruction">0</div>
+        </div>
+        <div class="simple-column">
+          <div class="simple-heading">Output</div>
+          <div class="simple-data" id="Output">0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ram-browser" id="ram-browser">
+    <textarea id="ram-display">
+    </textarea> 
   </div>
   <script src="bin/rolledup.js"></script>
 

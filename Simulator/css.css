@@ -30,41 +30,73 @@
   cursor: default;
   user-select: none;
   font-weight: 300;
-  padding-left : 2px;
+  padding-left: 2px;
   padding-right: 2px;
 }
 
-.control-button:hover{
+.control-button:hover {
   color: #6e6e6e;
 }
 
-.control-input{
-  margin-top:4px;
+.control-input {
+  margin-top: 4px;
   width: 50px;
   text-align: right;
   float: left;
 }
 
 .control-label {
-  float:left;
-  height:30px;
+  float: left;
+  height: 30px;
   line-height: 30px;
   padding-left: 2px;
 }
 
-.step{
+.step {
   box-shadow: -5px 0px 0px -4px #ccc;
 }
 
 .display {
-  position:absolute;
+  position: absolute;
   left: 700px;
   right: 0;
-  top:0;
-  bottom:0;
+  top: 0;
+  bottom: 200px;
   border-left: solid 1px #ccc;
 }
 
-.highlight-line{
+.ram-browser {
+  position:absolute;
+  left:700px;
+  border-left: solid 1px #ccc;
+  border-top: solid 1px #ccc;
+  right:0;
+  height:200px;
+  bottom:0;
+}
+
+.highlight-line {
   background-color: #ffefa0 !important;
+}
+
+.simple {
+  position:absolute;
+  left:0;
+  width:100%;
+  height: 100%;
+  top:0;;
+}
+
+.simple-column {
+  width: 50%;
+  float:left;
+  text-align: center;
+  line-height: 25px;
+}
+
+.simple-row {
+  position:relative;
+  width: 100%;
+  height: 20%;
+  float:left;
 }

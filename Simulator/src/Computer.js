@@ -14,6 +14,7 @@ class Computer {
     this.dataRegister = new Register(8);
     this.mAR = new Register(8);
     this.memory = new Memory(8, this.mAR);
+    this.memory.addEventListener(this);
     this.outputRegister = new Register(8);
     this.counter = new Counter(8);
 
@@ -62,6 +63,10 @@ class Computer {
     this.outputRegister.clear();
     this.mAR.clear();
     this.halt = false;
+  }
+
+  ramUpdated(){
+    this.emitEvent("ram-written");
   }
 
   addEventListener(listener){

@@ -24,10 +24,16 @@ class Memory {
     if(instructionBit){
       address = address | (0b1 << this.mAR.getWidth());
     }
+    if(this.listener && this.data[address] !== newValue){
+      this.listener.ramUpdated();
+    }
     this.data[address] = newValue;
   }
 
   setValues(ram){
+    if(this.listener){
+      this.listener.ramUpdated();
+    }
     this.data = ram;
     for(let i = 0; i<this.data.length; i++){
       if(typeof this.data[i] === 'undefined'){
@@ -35,6 +41,9 @@ class Memory {
       }
       this.data[i] = this.data[i] & this.mask;
     }
+  }
+  addEventListener(listener){
+    this.listener = listener;
   }
 
 }
