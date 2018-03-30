@@ -38,6 +38,15 @@ class Visualizer {
       }
     });
 
+    this.codeMirror.on('viewportChange', function(){
+      self.updateRamColor()
+    });
+
+    window.addEventListener('resize', function(){
+      self.needsUpdate = true;
+      self.needsRamUpdate = true;
+    });
+
     this.updateFunction = function(){
       if(self.needsUpdate){
         self.updateDisplay();
@@ -68,13 +77,19 @@ class Visualizer {
       string += ((i+1)%byteWidth === 0 && i !== 511) ? "\n" : " ";
     }
     this.codeMirror.getDoc().setValue(string);
+    this.updateRamColor();
+    this.codeMirror.scrollTo(null, currentScrollInfo.top);
+  }
+
+  updateRamColor(){
+    let viewPort = this.codeMirror.getViewport();
+    let offset = viewPort.from;
     let lineNumbers = this.ramBrowser.querySelectorAll(".CodeMirror-gutter-elt");
     let cutoff = 256/this.ramDisplayByteWidth;
     for(let i = 0; i<lineNumbers.length; i++){
-      let color = (i <= cutoff) ? "#fff89c" : "#d5deef";
+      let color = ((i+offset) <= cutoff) ? "#fff89c" : "#d5deef";
       lineNumbers[i].style.backgroundColor = color;
     }
-    this.codeMirror.scrollTo(null, currentScrollInfo.top);
   }
 
   computeMaxRamWidth(){

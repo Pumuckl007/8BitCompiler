@@ -23,13 +23,37 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
+  <div class="about">
+    <div class="about-title">8-Bit Simulator</div>
+    <div class="about-peragraph">This is a simulator for Ben Eater's
+      <a target="_blank" href="https://eater.net/category/8-bit-computer/">8-Bit Computer</a>. Some modifications have been made to the computer. It now has 512 bytes of ram of which 256 are for data and 256 are for instructions. The blue section in the ram viewer is
+      the instruction data and the yellow section is the data.
+    </div>
+
+    <div class="about-peragraph">To use the simulator write your code on the left using the assembler syntax Eater developed. Then when you want to run the code click the build (🔨) icon. This will program your code into the computer. You can then step (➜) through the code or run
+      (▶) it at a fixed pace.
+    </div>
+
+    <div class="about-peragraph">There are a few extensions to Eater's language. The most notable would be the addition of the Jump Equal to Zero (JEZ) and Jump Greater than Zero (JGZ) instructions. In addition, you can specify a label using the name: syntax. This label can be used
+      to replace the argument for a jump instruction.</div>
+
+    <div class="about-peragraph">The final useful feature of the simulator is debugging. You can click on the line number at any given line and the simulator will halt execution when the program gets to that instruction. To use this feature you must run the program in debug (🐞)
+      mode.
+    </div>
+    <div class="about-peragraph">For the source code, stand alone compiler, and Arduino upload sketch visit the project's <a target="_blank" href="https://github.com/Pumuckl007/8BitCompiler">Github</a>.</div>
+    <div class="about-peragraph">
+      This project uses the library <a target="_blank" href="https://codemirror.net/index.html">CodeMirror</a> whose license can be found <a target="_blank" href="https://codemirror.net/LICENSE">here</a>.
+    </div>
+    <div class="about-license">&copy; 2018 Max Apodaca</div>
+    <div class="about-license">This project is licensed under the MIT license which can be found <a target="_blank" href="https://github.com/Pumuckl007/8BitCompiler/blob/master/LICENSE">here</a>.</div>
+  </div>
+
   <div class="controls">
     <div title="Compile" id="compile" class="control-button compile">🔨</div>
     <div title="Debug" id="debug" class="control-button debug">🐞</div>
     <div title="Step" id="step" class="control-button step">➜</div>
     <div title="Run" id="run" class="control-button run">▶</div>
-    <input type="number" min="0" title="Frequency"
-      value="10" class="control-input frequency" id="frequency"></input>
+    <input type="number" min="0" title="Frequency" value="10" class="control-input frequency" id="frequency"></input>
     <div class="control-label">Hz</div>
   </div>
   <div class="editor-wrapper">
@@ -105,7 +129,7 @@ HLT
   </div>
   <div class="ram-browser" id="ram-browser">
     <textarea id="ram-display">
-    </textarea> 
+    </textarea>
   </div>
   <script src="bin/rolledup.js"></script>
 
