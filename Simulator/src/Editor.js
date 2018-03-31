@@ -69,7 +69,7 @@ class Editor {
     }
     this.computer.addEventListener(this);
     this.lineMap = [];
-    this.timerDelay = 1000;
+    this.timerDelay = 100;
     this.timesRepeated = 1;
     this.activeLine = -1;
     this.repeatFunction = function() {
@@ -104,6 +104,7 @@ class Editor {
     for(let loadButton of this.loadExamples){
       loadButton.onclick = function(e){self.loadExample(e.target.id)};
     }
+    this.upload();
   }
 
   loadExample(name){
@@ -111,7 +112,10 @@ class Editor {
     if(exampleText){
       this.codeMirror.getDoc().setValue(exampleText);
     }
+    this.setStopped();
     this.closeLoad();
+    this.highlightLine(-1);
+    this.upload();
   }
 
   openLoad(){
@@ -203,6 +207,7 @@ class Editor {
   }
 
   setFrequency(frequency) {
+    console.log(frequency);
     if (frequency <= 0) {
       this.setStopped();
       return;

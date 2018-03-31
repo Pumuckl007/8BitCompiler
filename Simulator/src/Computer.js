@@ -43,7 +43,7 @@ class Computer {
       }
     }
     this.microInstruction ++;
-    if(this.microInstruction > 6){
+    if(this.microInstruction > 5){
       this.microInstruction = 0;
     }
     this.emitEvent("step-done");
