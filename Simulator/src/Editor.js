@@ -88,7 +88,7 @@ class Editor {
     this.aboutOpen = document.getElementById("about-open");
     this.aboutClose.onclick = function(){self.closeAbout();};
     this.aboutOpen.onclick = function(){self.openAbout();};
-    if(localStorage.readAbout === "false"){
+    if(localStorage.readAbout !== "true"){
       self.openAbout();
     }
 
