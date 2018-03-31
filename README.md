@@ -47,7 +47,7 @@ It is important to note that the switches on the 8-bit computer should all be tu
 Simulator
 ---
 
-A live version of the simulator can be found at [LINK](LINK). The simulator uses the compiler found in this project and provides a visual way to look at the registers as well as the contents of memory. The simulator also features a debugger which can be used to find bugs in your code. The same code can then be saved and uploaded to the computer using the programmer portion of this project.
+A live version of the simulator can be found at [https://pumuckl007.github.io/8BitCompiler/](https://pumuckl007.github.io/8BitCompiler/). The simulator uses the compiler found in this project and provides a visual way to look at the registers as well as the contents of memory. The simulator also features a debugger which can be used to find bugs in your code. The same code can then be saved and uploaded to the computer using the programmer portion of this project.
 
 If you want to build it yourself make sure you install the required libraries using:
 
