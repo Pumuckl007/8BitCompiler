@@ -90,9 +90,10 @@ class Visualizer {
     let viewPort = this.codeMirror.getViewport();
     let offset = viewPort.from;
     let lineNumbers = this.ramBrowser.querySelectorAll(".CodeMirror-gutter-elt");
+    offset -= (lineNumbers.length % 2);
     let cutoff = 256/this.ramDisplayByteWidth;
     for(let i = 0; i<lineNumbers.length; i++){
-      let color = ((i+offset) <= cutoff) ? "#fff89c" : "#d5deef";
+      let color = ((i+offset) < cutoff) ? "#fff89c" : "#d5deef";
       lineNumbers[i].style.backgroundColor = color;
     }
   }

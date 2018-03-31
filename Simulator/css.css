@@ -109,14 +109,14 @@
   }
 }
 
-.about{
+.about {
   position: fixed;
   top: 50%;
   left: 50%;
   margin-top: -250px;
   margin-left: -300px;
-  width:600px;
-  height:500px;
+  width: 600px;
+  height: 500px;
   background-color: #eee;
   z-index: 100;
   border: solid 1px #bbb;
@@ -142,11 +142,11 @@
 }
 
 .about-close {
-  position:absolute;
+  position: absolute;
   right: 5px;
-  top:5px;
-  width:15px;
-  height:20px;
+  top: 5px;
+  width: 15px;
+  height: 20px;
   color: #909090;
   cursor: default;
   user-select: none;
@@ -158,4 +158,37 @@
 
 .about-button {
   float: right;
+}
+
+.load {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -300px;
+  width: 600px;
+  height: 300px;
+  background-color: #eee;
+  z-index: 100;
+  border: solid 1px #bbb;
+  font-family: "Times New Roman";
+}
+
+.example {
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+.example-load {
+  float: right;
+  margin-right: 10px;
+  border: solid 1px #bbb;
+  padding: 1px;
+  background-color: #dadada;
+  user-select: none;
+  cursor: default;
+}
+
+.example-load:hover {
+  background-color: #ccc;
 }

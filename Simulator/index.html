@@ -56,24 +56,14 @@
     <div title="Run" id="run" class="control-button run">▶</div>
     <input type="number" min="0" title="Frequency" value="10" class="control-input frequency" id="frequency"></input>
     <div class="control-label">Hz</div>
-    <div class="control-button about-button" id="about-open">ⓘ</div>
+    <div title="About" class="control-button about-button" id="about-open">ⓘ</div>
+    <div title="Load Example" class="control-button about-button" id="load-example">↑</div>
   </div>
   <div class="editor-wrapper">
-    <textarea id="editor">
-********************************************************************************
-*                                                                              *
-*      (c) 2018 Max Apodaca                                                    *
-*      This code is licensed under MIT license (see LICENSE for details)       *
-*                                                                              *
-********************************************************************************
-
-LDI 12
-STA 200
-LDI 8
-ADD 200
-OUT
-HLT
-</textarea>
+    <textarea id="editor">*This is a comment
+      
+a:      * this is a label
+JMP a   * labels can be referenced in Jump Instructions</textarea>
   </div>
   <div class="display" id="display">
     <div class="simple" id="simple">
@@ -133,6 +123,19 @@ HLT
     <textarea id="ram-display">
     </textarea>
   </div>
+
+  <div class="load" id="load-menu" style="display:none">
+    <div title="Close" class="about-close" id="load-close">✖</div>
+    <div class="about-title">Examples</div>
+    <div class="example">Add - Adds two numbers <div class="example-load" id="add">load</div></div>
+    <div class="example">Divide - Divides two numbers <div class="example-load" id="divide">load</div></div>
+    <div class="example">Fibonacci - Iterates the Fibonacci series <div class="example-load" id="fibonacci">load</div></div>
+    <div class="example">Loop - Example of a loop <div class="example-load" id="loop">load</div></div>
+    <div class="example">Modulo - Computes modulus of two numbers <div class="example-load" id="modulo">load</div></div>
+    <div class="example">Multiply - Multiplies two numbers <div class="example-load" id="multiply">load</div></div>
+    <div class="example">Prime - Iterates the prime numbers <div class="example-load" id="prime">load</div></div>
+  </div>
+
   <script src="bin/rolledup.js"></script>
 
 </body>

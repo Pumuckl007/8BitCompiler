@@ -1,4 +1,5 @@
 import Parser from "./Compiler/Parser.js";
+import ExampleMap from "./ExampleMap.js";
 
 let modes = {
   "paused": "paused",
@@ -90,6 +91,35 @@ class Editor {
     if(localStorage.readAbout === "false"){
       self.openAbout();
     }
+
+    this.load = document.getElementById("load-menu");
+    this.loadOpen = document.getElementById("load-example");
+    this.loadOpen.onclick = function(){
+      self.openLoad();
+    }
+    this.loadClose = document.getElementById("load-close");
+    this.loadClose.onclick = function(){ self.closeLoad() };
+
+    this.loadExamples = document.querySelectorAll(".example-load");
+    for(let loadButton of this.loadExamples){
+      loadButton.onclick = function(e){self.loadExample(e.target.id)};
+    }
+  }
+
+  loadExample(name){
+    let exampleText = ExampleMap[name];
+    if(exampleText){
+      this.codeMirror.getDoc().setValue(exampleText);
+    }
+    this.closeLoad();
+  }
+
+  openLoad(){
+    this.load.style.display = "block";
+  }
+
+  closeLoad(){
+    this.load.style.display = "none";
   }
 
   closeAbout(){
