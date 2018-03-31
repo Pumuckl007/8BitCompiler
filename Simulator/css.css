@@ -1,0 +1,194 @@
+.editor-wrapper {
+  position: absolute;
+  width: 700px;
+  top: 30px;
+  bottom: 0;
+  left: 0;
+}
+
+.CodeMirror {
+  height: 100% !important;
+}
+
+.controls {
+  position: absolute;
+  width: 700px;
+  height: 29px;
+  top: 0;
+  left: 0;
+  border-bottom: solid 1px #ccc;
+}
+
+.control-button {
+  width: 30px;
+  height: 30px;
+  float: left;
+  text-align: center;
+  font-size: 1.4em;
+  line-height: 30px;
+  color: #909090;
+  cursor: default;
+  user-select: none;
+  font-weight: 300;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.control-button:hover {
+  color: #6e6e6e;
+}
+
+.control-input {
+  width: 50px;
+  text-align: right;
+  float: left;
+  line-height: 100%;
+}
+
+.control-label {
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 2px;
+}
+
+.step {
+  box-shadow: -5px 0px 0px -4px #ccc;
+}
+
+.display {
+  position: absolute;
+  left: 700px;
+  right: 0;
+  top: 0;
+  bottom: 35%;
+  border-left: solid 1px #ccc;
+}
+
+.ram-browser {
+  position: absolute;
+  left: 700px;
+  border-left: solid 1px #ccc;
+  border-top: solid 1px #ccc;
+  right: 0;
+  min-height: 200px;
+  height: 35%;
+  bottom: 0;
+}
+
+.highlight-line {
+  background-color: #ffefa0 !important;
+}
+
+.simple {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  ;
+}
+
+.simple-column {
+  width: 50%;
+  float: left;
+  text-align: center;
+  line-height: 25px;
+}
+
+.simple-row {
+  position: relative;
+  width: 100%;
+  height: 20%;
+  float: left;
+}
+
+@media all and (max-height: 500px) {
+  .display {
+    bottom: 200px;
+  }
+}
+
+.about {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -300px;
+  width: 600px;
+  height: 500px;
+  background-color: #eee;
+  z-index: 100;
+  border: solid 1px #bbb;
+  font-family: "Times New Roman";
+}
+
+.about-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 15px;
+  margin-top: 7px;
+}
+
+.about-peragraph {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 15px;
+}
+
+.about-license {
+  font-size: 0.8em;
+  margin-left: 30px;
+}
+
+.about-close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 15px;
+  height: 20px;
+  color: #909090;
+  cursor: default;
+  user-select: none;
+}
+
+.about-close:hover {
+  color: #444;
+}
+
+.about-button {
+  float: right;
+}
+
+.load {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -300px;
+  width: 600px;
+  height: 300px;
+  background-color: #eee;
+  z-index: 100;
+  border: solid 1px #bbb;
+  font-family: "Times New Roman";
+}
+
+.example {
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+.example-load {
+  float: right;
+  margin-right: 10px;
+  border: solid 1px #bbb;
+  padding: 1px;
+  background-color: #dadada;
+  user-select: none;
+  cursor: default;
+}
+
+.example-load:hover {
+  background-color: #ccc;
+}
