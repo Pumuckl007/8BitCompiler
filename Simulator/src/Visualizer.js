@@ -5,6 +5,7 @@ class Visualizer {
 
     this.needsUpdate = true;
     this.needsRamUpdate = true;
+    this.ramCooldown = 0;
 
     this.displayDiv = document.getElementById("display");
     this.simpleDiv = document.getElementById("simple");
@@ -52,11 +53,15 @@ class Visualizer {
         self.updateDisplay();
         self.needsUpdate = false;
       }
-      if(self.needsRamUpdate){
+      if(self.needsRamUpdate && self.ramCooldown === 0){
         self.updateRam();
         self.needsRamUpdate = false;
+        self.ramCooldown = 4;
       }
       requestAnimationFrame(self.updateFunction);
+      if(self.ramCooldown > 0){
+        self.ramCooldown --;
+      }
     }
     this.updateFunction();
   }

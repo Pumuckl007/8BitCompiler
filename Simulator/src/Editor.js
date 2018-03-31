@@ -59,7 +59,7 @@ class Editor {
       self.toggleRun();
     }
     this.frequencyInput.onchange = function(e) {
-      let frequency = parseInt(e.srcElement.value);
+      let frequency = parseInt(self.frequencyInput.value);
       if (!isNaN(frequency) && frequency >= 0) {
         self.setFrequency(frequency);
       } else {
@@ -81,6 +81,24 @@ class Editor {
       setTimeout(self.repeatFunction, delayTime);
     }
     this.repeatFunction();
+
+    this.about = document.getElementById("about");
+    this.aboutClose = document.getElementById("about-close");
+    this.aboutOpen = document.getElementById("about-open");
+    this.aboutClose.onclick = function(){self.closeAbout();};
+    this.aboutOpen.onclick = function(){self.openAbout();};
+    if(localStorage.readAbout === "false"){
+      self.openAbout();
+    }
+  }
+
+  closeAbout(){
+    this.about.style.display = "none";
+    localStorage.setItem('readAbout', true);
+  }
+
+  openAbout(){
+    this.about.style.display = "block";
   }
 
   upload() {

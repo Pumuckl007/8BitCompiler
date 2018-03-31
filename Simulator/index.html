@@ -23,7 +23,8 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
 
-  <div class="about">
+  <div class="about" id="about" style="display:none">
+    <div title="Close" class="about-close" id="about-close">✖</div>
     <div class="about-title">8-Bit Simulator</div>
     <div class="about-peragraph">This is a simulator for Ben Eater's
       <a target="_blank" href="https://eater.net/category/8-bit-computer/">8-Bit Computer</a>. Some modifications have been made to the computer. It now has 512 bytes of ram of which 256 are for data and 256 are for instructions. The blue section in the ram viewer is
@@ -55,6 +56,7 @@
     <div title="Run" id="run" class="control-button run">▶</div>
     <input type="number" min="0" title="Frequency" value="10" class="control-input frequency" id="frequency"></input>
     <div class="control-label">Hz</div>
+    <div class="control-button about-button" id="about-open">ⓘ</div>
   </div>
   <div class="editor-wrapper">
     <textarea id="editor">

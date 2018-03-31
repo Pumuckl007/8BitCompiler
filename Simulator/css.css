@@ -39,10 +39,10 @@
 }
 
 .control-input {
-  margin-top: 4px;
   width: 50px;
   text-align: right;
   float: left;
+  line-height: 100%;
 }
 
 .control-label {
@@ -120,6 +120,7 @@
   background-color: #eee;
   z-index: 100;
   border: solid 1px #bbb;
+  font-family: "Times New Roman";
 }
 
 .about-title {
@@ -138,4 +139,23 @@
 .about-license {
   font-size: 0.8em;
   margin-left: 30px;
+}
+
+.about-close {
+  position:absolute;
+  right: 5px;
+  top:5px;
+  width:15px;
+  height:20px;
+  color: #909090;
+  cursor: default;
+  user-select: none;
+}
+
+.about-close:hover {
+  color: #444;
+}
+
+.about-button {
+  float: right;
 }
