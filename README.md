@@ -70,4 +70,4 @@ $ npm run watch
 Attribution
 ---
 
-This project makes hevy use of Code Mirror whose license can be found [here](https://codemirror.net/LICENSE).
+This project makes heavy use of Code Mirror whose license can be found [here](https://codemirror.net/LICENSE).
