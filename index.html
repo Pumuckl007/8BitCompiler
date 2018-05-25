@@ -1,0 +1,146 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="css.css">
+
+  <script src="lib/codemirror.js"></script>
+  <link rel="stylesheet" href="lib/codemirror.css">
+  <script src="mode/gas/gas.js"></script>
+</head>
+
+<body>
+  <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+  <div class="about" id="about" style="display:none">
+    <div title="Close" class="about-close" id="about-close">✖</div>
+    <div class="about-title">8-Bit Simulator</div>
+    <div class="about-peragraph">This is a simulator for Ben Eater's
+      <a target="_blank" href="https://eater.net/category/8-bit-computer/">8-Bit Computer</a>. Some modifications have been made to the computer. It now has 512 bytes of ram of which 256 are for data and 256 are for instructions. The blue section in the ram viewer is
+      the instruction data and the yellow section is the data.
+    </div>
+
+    <div class="about-peragraph">To use the simulator write your code on the left using the assembler syntax Eater developed. Then when you want to run the code click the build (🔨) icon. This will program your code into the computer. You can then step (➜) through the code or run
+      (▶) it at a fixed pace.
+    </div>
+
+    <div class="about-peragraph">There are a few extensions to Eater's language. The most notable would be the addition of the Jump Equal to Zero (JEZ) and Jump Greater than Zero (JGZ) instructions. In addition, you can specify a label using the name: syntax. This label can be used
+      to replace the argument for a jump instruction.</div>
+
+    <div class="about-peragraph">The final useful feature of the simulator is debugging. You can click on the line number at any given line and the simulator will halt execution when the program gets to that instruction. To use this feature you must run the program in debug (🐞)
+      mode.
+    </div>
+    <div class="about-peragraph">For the source code, stand alone compiler, and Arduino upload sketch visit the project's <a target="_blank" href="https://github.com/Pumuckl007/8BitCompiler">Github</a>.</div>
+    <div class="about-peragraph">
+      This project uses the library <a target="_blank" href="https://codemirror.net/index.html">CodeMirror</a> whose license can be found <a target="_blank" href="https://codemirror.net/LICENSE">here</a>.
+    </div>
+    <div class="about-license">&copy; 2018 Max Apodaca</div>
+    <div class="about-license">This project is licensed under the MIT license which can be found <a target="_blank" href="https://github.com/Pumuckl007/8BitCompiler/blob/master/LICENSE">here</a>.</div>
+  </div>
+
+  <div class="controls">
+    <div title="Compile" id="compile" class="control-button compile">🔨</div>
+    <div title="Debug" id="debug" class="control-button debug">🐞</div>
+    <div title="Step" id="step" class="control-button step">➜</div>
+    <div title="Run" id="run" class="control-button run">▶</div>
+    <input type="number" min="0" title="Frequency" value="10" class="control-input frequency" id="frequency"></input>
+    <div class="control-label">Hz</div>
+    <div title="About" class="control-button about-button" id="about-open">ⓘ</div>
+    <div title="Load Example" class="control-button about-button" id="load-example">↑</div>
+  </div>
+  <div class="editor-wrapper">
+    <textarea id="editor">*This is a comment
+
+a:      * this is a label
+JMP a   * labels can be referenced in Jump Instructions
+
+        * Check out some examples using the ↑ button.
+</textarea>
+  </div>
+  <div class="display" id="display">
+    <div class="simple" id="simple">
+      <div class="simple-row">
+        <div class="simple-column">
+          <div class="simple-heading">MAR</div>
+          <div class="simple-data" id="MAR">0</div>
+        </div>
+        <div class="simple-column">
+          <div class="simple-heading">Counter</div>
+          <div class="simple-data" id="Counter">0</div>
+        </div>
+      </div>
+      <div class="simple-row">
+        <div class="simple-column">
+          <div class="simple-heading">Memory</div>
+          <div class="simple-data" id="Memory">0</div>
+        </div>
+        <div class="simple-column">
+          <div class="simple-heading">A Register</div>
+          <div class="simple-data" id="A-Register">0</div>
+        </div>
+      </div>
+      <div class="simple-row">
+        <div class="simple-column">
+          <div class="simple-heading">Instruction Register</div>
+          <div class="simple-data" id="Instruction-Register">0</div>
+        </div>
+        <div class="simple-column">
+          <div class="simple-heading">Sum Register</div>
+          <div class="simple-data" id="Sum-Register">0</div>
+        </div>
+      </div>
+      <div class="simple-row">
+        <div class="simple-column">
+          <div class="simple-heading">Data Register</div>
+          <div class="simple-data" id="Data-Register">0</div>
+        </div>
+        <div class="simple-column">
+          <div class="simple-heading">B Register</div>
+          <div class="simple-data" id="B-Register">0</div>
+        </div>
+      </div>
+      <div class="simple-row">
+        <div class="simple-column">
+          <div class="simple-heading">Micro Instruction</div>
+          <div class="simple-data" id="Micro-Instruction">0</div>
+        </div>
+        <div class="simple-column">
+          <div class="simple-heading">Output</div>
+          <div class="simple-data" id="Output">0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ram-browser" id="ram-browser">
+    <textarea id="ram-display">
+    </textarea>
+  </div>
+
+  <div class="load" id="load-menu" style="display:none">
+    <div title="Close" class="about-close" id="load-close">✖</div>
+    <div class="about-title">Examples</div>
+    <div class="example">Add - Adds two numbers <div class="example-load" id="add">load</div></div>
+    <div class="example">Divide - Divides two numbers <div class="example-load" id="divide">load</div></div>
+    <div class="example">Fibonacci - Iterates the Fibonacci series <div class="example-load" id="fibonacci">load</div></div>
+    <div class="example">Loop - Example of a loop <div class="example-load" id="loop">load</div></div>
+    <div class="example">Modulo - Computes modulus of two numbers <div class="example-load" id="modulo">load</div></div>
+    <div class="example">Multiply - Multiplies two numbers <div class="example-load" id="multiply">load</div></div>
+    <div class="example">Prime - Iterates the prime numbers <div class="example-load" id="prime">load</div></div>
+  </div>
+
+  <script src="bin/rolledup.js"></script>
+
+</body>
+
+</html>
