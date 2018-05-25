@@ -12,7 +12,7 @@ body {
 }
 
 .CodeMirror {
-  height: auto;
+  height: 100%;
 }
 
 .controls {
