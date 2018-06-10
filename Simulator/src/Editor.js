@@ -21,7 +21,8 @@ class Editor {
       lineNumbers: true,
       mode: "gas",
       gutters: ["breakpoints", "CodeMirror-linenumbers"],
-      lineWrapping: true
+      lineWrapping: true,
+      viewportMargin: Infinity
     });
 
     let makeMarker = function makeMarker() {
@@ -105,6 +106,16 @@ class Editor {
       loadButton.onclick = function(e){self.loadExample(e.target.id)};
     }
     this.upload();
+
+    window.addEventListener('resize', function(){
+      self.updateSize();
+    });
+  }
+
+  updateSize(){
+    let editorWrapper = document.getElementById("editor-wrapper");
+    this.codeMirror.setSize(editorWrapper.offsetWidth, editorWrapper.offsetHeight);
+    console.log(editorWrapper.offsetWidth, editorWrapper.offsetHeight);
   }
 
   loadExample(name){

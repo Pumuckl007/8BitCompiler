@@ -1,6 +1,11 @@
+body {
+  overflow: hidden;
+}
+
 .editor-wrapper {
   position: absolute;
   width: 700px;
+  max-width: 60vw;
   top: 30px;
   bottom: 0;
   left: 0;
@@ -13,12 +18,12 @@
 .controls {
   position: absolute;
   width: 700px;
+  max-width: 60vw;
   height: 29px;
   top: 0;
   left: 0;
   border-bottom: solid 1px #ccc;
 }
-
 .control-button {
   width: 30px;
   height: 30px;
@@ -57,23 +62,25 @@
 }
 
 .display {
+  float:right;
   position: absolute;
-  left: 700px;
   right: 0;
   top: 0;
   bottom: 35%;
   border-left: solid 1px #ccc;
+  min-width: 40vw;
+  width: 40vw;
 }
 
 .ram-browser {
   position: absolute;
-  left: 700px;
   border-left: solid 1px #ccc;
   border-top: solid 1px #ccc;
   right: 0;
-  min-height: 200px;
   height: 35%;
   bottom: 0;
+  min-width: 40vw;
+  width: 40vw;
 }
 
 .highlight-line {
@@ -106,6 +113,10 @@
 @media all and (max-height: 500px) {
   .display {
     bottom: 200px;
+  }
+
+  .ram-browser {
+    height: 200px;
   }
 }
 
@@ -191,4 +202,16 @@
 
 .example-load:hover {
   background-color: #ccc;
+}
+
+@media all and (min-width: 1170px) {
+    .display{
+      left: 700px;
+      width: auto;
+    }
+
+    .ram-browser{
+      left: 700px;
+      width: auto;
+    }
 }
