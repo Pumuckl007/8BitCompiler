@@ -14,6 +14,8 @@ var InstructionMap = {
   "AW0":0b1001,
   "AW1":0b1010,
   "ANI":0b1011,
+  "SFT":0b1100,
+  "NAN":0b1101,
   "OUT":0b1110,
   "HLT":0b1111,
 }

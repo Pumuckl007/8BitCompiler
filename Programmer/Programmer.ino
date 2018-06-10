@@ -3,8 +3,8 @@
 
 #define WRITE 21
 #define INSTRUCTION 20
-#define LOWADDR 22
-#define LOWDATA 23
+#define LOWADDR 32
+#define LOWDATA 33
 
 #define DELAY 2
 
